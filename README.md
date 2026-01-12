@@ -76,17 +76,19 @@ src/
  │   └─ api.js
  │
  ├─ App.jsx
+ ├─ App.css
  ├─ main.jsx
  └─ index.css
 ```
 
 ## 🧠 Design & Technical Decisions
 
-* Used **frontend filtering** for faster UX and fewer API calls
-* Implemented **skeleton loaders** to avoid layout shifts
-* Used **Tailwind CSS v4 dark mode with custom variant**
-* Modal-based item detail view for better user experience
-* Mobile-first responsive layout
+* Used **frontend filtering and sorting** to provide instant feedback and reduce unnecessary API calls
+* Implemented a **“Load More” progressive rendering strategy** to improve scroll performance and reduce DOM load when displaying large item lists
+* Added **skeleton loaders** to prevent layout shifts and improve perceived loading speed
+* Designed a **mobile-first responsive layout**, including a mobile-only bottom sheet for sorting options
+* Used **Tailwind CSS v4 dark mode with a custom variant** for consistent theming
+* Implemented a **modal-based item detail view** to keep users in context while browsing
 
 ---
 
