@@ -9,14 +9,14 @@ function MenuCard({ item, onSelect }) {
   } = item;
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow hover:shadow-md transition overflow-hidden flex flex-col">
+    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
       
       {/* Image */}
-      <div className="h-44 w-full overflow-hidden">
+      <div className="h-44 w-full overflow-hidden group">
         <img
           src={image}
           alt={name}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
 

@@ -106,8 +106,8 @@ function Home() {
         onSearchChange={setSearchQuery}
       />
 
-      <main className="bg-gray-100 dark:bg-gray-900 min-h-screen">
-        <div className="max-w-7xl mx-auto px-4 py-6">
+      <main className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-950 dark:to-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
           {/* Categories */}
           <CategoryTabs
@@ -117,12 +117,22 @@ function Home() {
           />
 
           {/* Filters */}
-          <Filters
-            sortOption={sortOption}
-            onSortChange={setSortOption}
-            dietaryFilters={dietaryFilters}
-            onDietaryChange={toggleDietary}
-          />
+          <div className="
+            mt-6
+            p-4 sm:p-5
+            rounded-2xl
+            bg-white/70 dark:bg-gray-800/70
+            backdrop-blur-xl
+            shadow-sm
+            border border-gray-200/50 dark:border-gray-700/50"
+          >
+            <Filters
+              sortOption={sortOption}
+              onSortChange={setSortOption}
+              dietaryFilters={dietaryFilters}
+              onDietaryChange={toggleDietary}
+            />
+          </div>
 
           {/* Result count */}
           {!loading && !error && (

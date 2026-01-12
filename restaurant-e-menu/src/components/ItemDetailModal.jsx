@@ -18,12 +18,26 @@ function ItemDetailModal({ item, onClose }) {
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
-      <div className="bg-white rounded-2xl w-full max-w-3xl overflow-hidden">
+      <div className="relative bg-white dark:bg-gray-900 rounded-2xl w-full max-w-3xl overflow-hidden">
 
         {/* Close */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 bg-white rounded-full px-3 py-1 shadow z-10"
+          aria-label="Close"
+          className="
+            absolute top-4 right-4 z-20
+            w-9 h-9
+            rounded-full
+            flex items-center justify-center
+            bg-white/90 dark:bg-gray-800/90
+            backdrop-blur
+            border border-gray-200 dark:border-gray-700
+            text-gray-700 dark:text-gray-200
+            hover:bg-red-500 hover:text-white
+            transition-all duration-200
+            hover:scale-110
+            focus:outline-none focus:ring-2 focus:ring-red-500/40
+          "
         >
           ✕
         </button>
@@ -32,7 +46,7 @@ function ItemDetailModal({ item, onClose }) {
         <div className="grid grid-cols-1 md:grid-cols-2">
 
           {/* Image */}
-          <div className="h-56 md:h-full">
+          <div className="h-56 md:h-full relative">
             <img
               src={item.image}
               alt={item.name}
