@@ -21,6 +21,7 @@ function Home() {
 
   const [selectedItem, setSelectedItem] = useState(null);
 
+  // Load initial data
   useEffect(() => {
     async function loadData() {
       try {
@@ -44,6 +45,7 @@ function Home() {
     loadData();
   }, []);
 
+  // Toggle dietary filters
   const toggleDietary = (type) => {
     setDietaryFilters((prev) =>
       prev.includes(type)
@@ -52,17 +54,16 @@ function Home() {
     );
   };
 
+  // Filter + sort logic
   const filteredItems = useMemo(() => {
     let items = [...menuItems];
 
-    // Category
     if (activeCategory) {
       items = items.filter(
         (item) => item.category === activeCategory
       );
     }
 
-    // Search
     if (searchQuery.trim()) {
       items = items.filter((item) =>
         item.name
@@ -71,7 +72,6 @@ function Home() {
       );
     }
 
-    // Dietary
     if (dietaryFilters.length > 0) {
       items = items.filter((item) =>
         dietaryFilters.every((d) =>
@@ -80,7 +80,6 @@ function Home() {
       );
     }
 
-    // Sorting
     if (sortOption === "price-asc") {
       items.sort((a, b) => a.price - b.price);
     } else if (sortOption === "price-desc") {
@@ -108,14 +107,16 @@ function Home() {
       />
 
       <main className="bg-gray-100 dark:bg-gray-900 min-h-screen">
-        <div className="max-w-7xl mx-auto p-4">
+        <div className="max-w-7xl mx-auto px-4 py-6">
 
+          {/* Categories */}
           <CategoryTabs
             categories={categories}
             activeCategory={activeCategory}
             onCategoryChange={setActiveCategory}
           />
 
+          {/* Filters */}
           <Filters
             sortOption={sortOption}
             onSortChange={setSortOption}
@@ -123,12 +124,14 @@ function Home() {
             onDietaryChange={toggleDietary}
           />
 
+          {/* Result count */}
           {!loading && !error && (
-            <p className="mt-4 text-sm text-gray-500">
+            <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
               {filteredItems.length} items found
             </p>
           )}
 
+          {/* Loading skeleton */}
           {loading && (
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {Array.from({ length: 8 }).map((_, i) => (
@@ -137,20 +140,31 @@ function Home() {
             </div>
           )}
 
+          {/* Error */}
           {!loading && error && (
             <p className="mt-10 text-center text-red-600">
               {error}
             </p>
           )}
 
+          {/* Empty state */}
           {!loading && !error && filteredItems.length === 0 && (
-            <p className="mt-10 text-center text-gray-500">
+            <p className="mt-10 text-center text-gray-500 dark:text-gray-400">
               No results found
             </p>
           )}
 
+          {/* Menu grid with smooth animation */}
           {!loading && !error && filteredItems.length > 0 && (
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div
+              key={activeCategory + searchQuery + sortOption}
+              className="
+                mt-6
+                grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4
+                gap-6
+                animate-fadeIn
+              "
+            >
               {filteredItems.map((item) => (
                 <MenuCard
                   key={item.id}
@@ -161,6 +175,7 @@ function Home() {
             </div>
           )}
 
+          {/* Item details */}
           {selectedItem && (
             <ItemDetailModal
               item={selectedItem}

@@ -46,8 +46,15 @@ function Header({ searchQuery, onSearchChange }) {
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center gap-4">
 
         {/* Logo */}
-        <div className="text-xl font-bold text-green-700 dark:text-green-400">
-          Delicious Bites
+        <div className="flex items-center gap-2">
+          <img
+            src="/src/assets/logo.png"
+            alt="Delicious Bites"
+            className="h-9 w-9 object-contain"
+          />
+          <span className="text-lg font-bold text-green-700 dark:text-gray-100">
+            Delicious Bites
+          </span>
         </div>
 
         {/* Search */}
@@ -78,8 +85,13 @@ function Header({ searchQuery, onSearchChange }) {
         {/* Dark Mode Toggle */}
         <button
           onClick={toggleDarkMode}
-          className="text-xl"
-          title="Toggle dark mode"
+          className="
+            w-10 h-10 flex items-center justify-center
+            rounded-full
+            bg-gray-100 dark:bg-gray-800
+            hover:scale-105
+            transition
+          "
         >
           {darkMode ? "🌙" : "☀️"}
         </button>
