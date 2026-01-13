@@ -1,33 +1,36 @@
 # 🍽️ Restaurant E-Menu Application
 
-A responsive restaurant digital menu web application built as part of the **Frontend Intern Hiring Test** for Softlien (Pvt) Ltd.
+A responsive restaurant digital menu web application built as part of the **Frontend Intern Hiring Test** for **Softlien (Pvt) Ltd**.
 
 ## 🚀 Features
 
-- Display 50 restaurant menu items from API
+- Display 50 restaurant menu items fetched from the provided API
 - Category filtering (Appetizers, Main Course, Desserts, Beverages)
 - Real-time search by item name
-- Sorting by price and name
+- Sorting by price (ascending / descending) and name
 - Dietary preference filters (vegetarian, vegan, gluten-free)
-- Item detail modal with full information
-- Skeleton loading states
-- Error and empty states
-- Responsive design (mobile, tablet, desktop)
-- Dark mode toggle (Tailwind CSS v4)
-- Clean, reusable component architecture
+- Item detail modal with full item information
+- Item customization options (size, add-ons, quantity)
+- Skeleton loading states for better perceived performance
+- Error and empty states handling
+- Fully responsive design (mobile, tablet, desktop)
+- Dark mode toggle using Tailwind CSS v4
+- Clean, reusable, and well-structured component architecture
+
 
 ## 🛠️ Tech Stack
 
 - **Frontend:** React 18 + Vite
 - **Styling:** Tailwind CSS v4 (Vite plugin)
-- **State Management:** React Hooks
-- **API:** JSON Server (provided)
-- **Icons:** Emoji-based UI
-- **Deployment Ready**
+- **State Management:** React Hooks (`useState`, `useEffect`, `useMemo`)
+- **API:** JSON Server (provided backend)
+- **Icons:** Emoji-based UI elements
+- **Deployment:** Ready for production build
+
 
 ## 📦 Project Setup
 
-### 1. Clone Repository
+### 1. Clone the Repository
 ```bash
 git clone <your-github-repo-url>
 cd restaurant-e-menu
@@ -45,17 +48,23 @@ npm install
 npm run api
 ```
 
-API runs at:
-`http://localhost:3001`
+API will run at:
 
-### 4. Start Frontend
+```
+http://localhost:3001
+```
+
+### 4. Start Frontend Application
 
 ```bash
 npm run dev
 ```
 
-Frontend runs at:
-`http://localhost:5173`
+Frontend will run at:
+
+```
+http://localhost:5173
+```
 
 ## 📂 Folder Structure
 
@@ -83,24 +92,19 @@ src/
 
 ## 🧠 Design & Technical Decisions
 
-* Used **frontend filtering and sorting** to provide instant feedback and reduce unnecessary API calls
-* Implemented a **“Load More” progressive rendering strategy** to improve scroll performance and reduce DOM load when displaying large item lists
-* Added **skeleton loaders** to prevent layout shifts and improve perceived loading speed
-* Designed a **mobile-first responsive layout**, including a mobile-only bottom sheet for sorting options
-* Used **Tailwind CSS v4 dark mode with a custom variant** for consistent theming
-* Implemented a **modal-based item detail view** to keep users in context while browsing
-
----
+* Implemented **frontend-based filtering, sorting, and searching** to provide instant user feedback and reduce unnecessary API calls
+* Optimized performance using **memoized filtering logic (`useMemo`)** to handle multiple filters efficiently
+* Added **skeleton loaders** to minimize layout shifts and improve perceived loading speed during data fetching
+* Designed a **mobile-first responsive UI**, including a mobile-only bottom sheet for sorting options
+* Used **Tailwind CSS v4 with a custom dark mode variant** for consistent theming across the application
+* Implemented a **modal-based item detail view** to allow users to view item details without losing browsing context
 
 ## ⚠️ Assumptions
 
-* Cart functionality is not implemented
-* “Add to Cart” actions are placeholders
-* Authentication is not required
-
----
+* Cart and checkout functionality are not implemented as per test instructions
+* “Add to Cart” actions are non-functional placeholders (alert-based)
+* User authentication is not required for this assignment
 
 ## 👤 Author
 
-**Tharushi Nimnadi Karunarathna**
-Frontend Intern Candidate
+**Tharushi Nimnadi Karunarathna** - Frontend Intern Candidate
