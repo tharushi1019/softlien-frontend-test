@@ -84,7 +84,7 @@ function Header({ searchQuery, onSearchChange }) {
           </div>
 
           {/* Modern Search Bar with floating effect */}
-          <div className="flex-1 relative max-w-md">
+          <div className="flex-1 relative w-full">
             <div className="relative group">
               {/* Search Icon */}
               <svg 
@@ -230,6 +230,41 @@ function Header({ searchQuery, onSearchChange }) {
               2
             </span>
           </button>
+
+          {/* User Profile (UI Placeholder Only) */}
+          <div
+            className="
+              flex items-center gap-2
+              pl-3
+              border-l border-gray-200 dark:border-gray-700
+            "
+          >
+            {/* Avatar */}
+            <div
+              className="
+                w-9 h-9 rounded-full
+                bg-gradient-to-br from-green-500 to-emerald-500
+                flex items-center justify-center
+                text-white font-semibold
+                text-sm
+                shadow-md
+              "
+              title="User profile (placeholder)"
+            >
+              G
+            </div>
+
+            {/* Username */}
+            <span
+              className="
+                hidden sm:block
+                text-sm font-medium
+                text-gray-700 dark:text-gray-200
+              "
+            >
+              Guest
+            </span>
+          </div>
 
         </div>
       </div>
